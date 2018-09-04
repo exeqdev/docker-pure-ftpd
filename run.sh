@@ -2,6 +2,7 @@
 
 #get external IP for passive
 dig +short myip.opendns.com @resolver1.opendns.com | tee /etc/pure-ftpd/conf/ForcePassiveIP
+#echo localhost | tee /etc/pure-ftpd/conf/ForcePassiveIP
 
 #get flags from configuration wrapper
 PURE_FTPD_FLAGS="$(/usr/sbin/pure-ftpd-wrapper -s)"
@@ -11,4 +12,5 @@ echo "Starting Pure-FTPd:"
 echo "  pure-ftpd $PURE_FTPD_FLAGS"
 
 # start pureftpd
-exec /usr/sbin/pure-ftpd $PURE_FTPD_FLAGS
+rsyslogd
+exec /usr/sbin/pure-ftpd $PURE_FTPD_FLAGS -d -d

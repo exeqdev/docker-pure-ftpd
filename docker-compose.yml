@@ -4,11 +4,12 @@ services:
     restart: always
     build:
        context: .
-       dockerfile: "./pureftpd.extension"
+       dockerfile: "./Dockerfile.pureftpd"
     ports:
       - "21:21"
       - "20:20"
-      - "40000:40100"
+      - "40000-40050:40000-40050"
     volumes:
        - ./pure-ftpd:/etc/pure-ftpd
+       - ./ftp_home:/ftp_home
        
