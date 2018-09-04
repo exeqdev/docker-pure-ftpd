@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  pureftpd:
+    restart: always
+    build:
+       context: .
+       dockerfile: "./pureftpd.extension"
+    ports:
+      - "21:21"
+      - "20:20"
+      - "40000:40100"
+    volumes:
+       - ./pure-ftpd:/etc/pure-ftpd
+       
