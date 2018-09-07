@@ -12,4 +12,5 @@ services:
     volumes:
        - ./pure-ftpd:/etc/pure-ftpd
        - ./ftp_home:/ftp_home
+       - ./logs:/var/log/pure-ftpd/
        
